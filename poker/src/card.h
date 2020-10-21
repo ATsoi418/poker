@@ -17,7 +17,7 @@ public:
 	~Card();
 
 	bool IsValid() const;
-	std::string PrintCard() const;
+	//std::string PrintCard() const;
 	bool operator==(const Card& o) const;
 
 	bool red() const;
@@ -33,7 +33,7 @@ private:
 } // namespace pokerCards
 
 
-std::iostream& operator<<(std::iostream& out, const Card& card);
+//std::iostream& operator<<(std::iostream& out, const Card& card);
 
 
 

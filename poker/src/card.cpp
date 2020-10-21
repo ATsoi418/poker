@@ -28,26 +28,26 @@ namespace pokerCards {
 }  // namespace pokerCards
 
 
-std::iostream& operator<<(std::iostream& out, const pokerCards::Card& card) {
-    if (!card.IsValid()) {
-        std::cout << "<Invalid>";
-        return out;
-    }
-
-    int value = card.value();
-    switch (card.value()) {
-    case Card::ACE: out << "Ace"; break;
-    case Card::JACK: out << "Jack"; break;
-    case Card::QUEEN: out << "Queen"; break;
-    case Card::KING: out << "King"; break;
-    default: out << value; break;
-    }
-    std::cout << " of ";
-    switch (card.suit()) {
-    case Card::SPADE: out << "Spades"; break;
-    case Card::CLUB: out << "Clubs"; break;
-    case Card::HEART: out << "Hearts"; break;
-    case Card::DIAMOND: out << "Diamonds"; break;
-    }
-    return out;
+//std::iostream& operator<<(std::iostream& out, const pokerCards::Card& card) {
+//    if (!card.IsValid()) {
+//        std::cout << "<Invalid>";
+//        return out;
+//    }
+//
+//    int value = card.value();
+//    switch (card.value()) {
+//    case Card::ACE: out << "Ace"; break;
+//    case Card::JACK: out << "Jack"; break;
+//    case Card::QUEEN: out << "Queen"; break;
+//    case Card::KING: out << "King"; break;
+//    default: out << value; break;
+//    }
+//    std::cout << " of ";
+//    switch (card.suit()) {
+//    case Card::SPADE: out << "Spades"; break;
+//    case Card::CLUB: out << "Clubs"; break;
+//    case Card::HEART: out << "Hearts"; break;
+//    case Card::DIAMOND: out << "Diamonds"; break;
+//    }
+//    return out;
 }
