@@ -1,44 +1,83 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+#include <map>
 
-namespace pokerCards {
+namespace poker {
 
-class Card {
-public:
-	const static int ACE = 1;
-	const static int JACK = 11;
-	const static int QUEEN = 12;
-	const static int KING = 13;
+	template <typename E>
+	constexpr auto enumVal(E e)
+	{
+		static_assert(std::is_enum<E>::value, "Parameter is not of type enum or enum class");
+		return static_cast<typename std::underlying_type<E>::type>(e);
+	}
 
-	enum Suit { SPADE=1, HEART, CLUB, DIAMOND };
+	template <typename E>
+	constexpr E begin(E e)
+	{
+		static_assert(std::is_enum<E>::value, "Parameter is not of type enum or enum class");
+		return e;
+	}
 
-	Card(int value, Suit suit);
-	Card(const Card& o);
-	~Card();
+	template <typename E>
+	constexpr E operator++(E& e)
+	{
+		static_assert(std::is_enum<E>::value, "Parameter is not of type enum or enum class");
+		return e = (E)(std::underlying_type<E>::type(e) + 1);
+	}
 
-	bool IsValid() const;
-	//std::string PrintCard() const;
-	bool operator==(const Card& o) const;
-
-	bool red() const;
-	int value() const;
-	Suit suit() const;
-
-private:
-	int value_;
-	Suit suit_;
-
-};
-
-} // namespace pokerCards
-
-
-//std::iostream& operator<<(std::iostream& out, const Card& card);
-
-
-
-
-
+	template <typename E>
+	constexpr E operator--(E& e)
+	{
+		static_assert(std::is_enum<E>::value, "Parameter is not of type enum or enum class");
+		return e = (E)(std::underlying_type<E>::type(e) - 1);
+	}
+	
+	template <typename E>
+	constexpr E operator*(E e)
+	{
+		static_assert(std::is_enum<E>::value, "Parameter is not of type enum or enum class");
+		return e;
+	}
 
 
-};
+	class Card {
+	public: // Defining Face & Suit
+		enum class Face { TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, END_FACE, JOKER };
+		enum class Suit { DIAMOND = 0, CLUB, HEART, SPADE, END_SUIT, LITTLE, BIG };
+		const std::vector<std::string> faceStr = { "JACK", "QUEEN", "KING", "ACE" };
+		const std::vector<std::string> suitStr = { "DIAMOND", "CLUB", "HEART", "SPADE" }; // Order should match enum class Suit
+	
+	public: // Basic constructors
+
+		Card(Face face, Suit suit);
+		Card(const Card& cd);
+		~Card();
+
+		Face face();
+		Suit suit();
+
+	public: // 
+
+		bool isRed() const;
+		bool isValid(Card&) const;
+		bool operator==(const Card& cd) const;
+		bool operator!=(const Card& cd) const;
+
+		std::vector<std::string> cd_to_str();
+		
+		friend std::ostream& operator<<(std::ostream& os, Card & cd)
+		{	
+            return (os << (cd.cd_to_str())[0] << " of " << (cd.cd_to_str())[1] << "S");
+		}
+
+	private:
+		Face face_;
+		Suit suit_;
+
+	};
+
+	
+
+} // namespace poker
