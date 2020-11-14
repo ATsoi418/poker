@@ -1,53 +1,42 @@
-#pragma once
-
 #include "card.h"
 #include <iostream>
+#include <string>
 
-namespace pokerCards {
+namespace poker {
 
-    Card::Card(int value, Suit suit) : value_(value), suit_(suit) {}
-    Card::Card(const Card& o) : value_(o.value_), suit_(o.suit_) {}
-    Card::~Card() {}
+// Basic constructors
 
-    bool Card::IsValid() const { return (value_ >= ACE) && (value_ <= KING) && (suit_ >= SPADE) && (suit_ <= DIAMOND); }
+Card::Card(Face face, Suit suit) : face_(face), suit_(suit) {}
+Card::Card(const Card& cd) : face_(cd.face_), suit_(cd.suit_) {}
+Card::~Card() {}
 
-    //std::string Card::PrintCard() const {
-    //    std::iostream out;
-    //    out << *this;
-    //    return out.str();
-    //}
+Card::Face Card::face() { return face_; }
+Card::Suit Card::suit() { return suit_; }
 
-    bool Card::operator==(const Card& o) const {
-        return ((value_ == o.value_) && (pokerCards::Card::suit_ == o.suit_));
-    }
+bool Card::isRed() const { return ((suit_ == Suit::HEART) || (suit_ == Suit::DIAMOND)); }
+bool Card::isValid(Card& cd) const { return (int(cd.face_) >= 1) && (int(cd.face_) < 14) && (int(cd.suit_) >= 1) && (int(cd.suit_) < 5); }
+bool Card::operator==(const Card& cd) const {
+	return ((face_ == cd.face_) && (suit_ == cd.suit_));
+}
+bool Card::operator!=(const Card& cd) const {
+	return ((face_ != cd.face_) || (suit_ != cd.suit_));
+}
 
-    bool Card::red() const { return ((suit_ == HEART) || (suit_ == DIAMOND)); }
-    int Card::value() const { return value_; }
-    Suit Card::suit() const { return suit_; }
+std::vector<std::string> Card::cd_to_str()
+{
+	// init card string vector
+	std::vector<std::string> cdStr;
 
-}  // namespace pokerCards
+	// push_back face string
+	int faceInt = enumVal(Card::face());
+	if (faceInt >10) { cdStr.push_back(Card::faceStr[faceInt-11]); }
+	else { cdStr.push_back(std::to_string(faceInt)); };
 
+	// push_back suit string
+	cdStr.push_back(Card::suitStr[enumVal(Card::suit())]);
 
-//std::iostream& operator<<(std::iostream& out, const pokerCards::Card& card) {
-//    if (!card.IsValid()) {
-//        std::cout << "<Invalid>";
-//        return out;
-//    }
-//
-//    int value = card.value();
-//    switch (card.value()) {
-//    case Card::ACE: out << "Ace"; break;
-//    case Card::JACK: out << "Jack"; break;
-//    case Card::QUEEN: out << "Queen"; break;
-//    case Card::KING: out << "King"; break;
-//    default: out << value; break;
-//    }
-//    std::cout << " of ";
-//    switch (card.suit()) {
-//    case Card::SPADE: out << "Spades"; break;
-//    case Card::CLUB: out << "Clubs"; break;
-//    case Card::HEART: out << "Hearts"; break;
-//    case Card::DIAMOND: out << "Diamonds"; break;
-//    }
-//    return out;
+	// return result
+	return cdStr;
+}
+
 }
