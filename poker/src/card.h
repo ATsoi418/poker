@@ -46,8 +46,8 @@ namespace poker {
 	public: // Defining Face & Suit
 		enum class Face { TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, END_FACE, JOKER };
 		enum class Suit { DIAMOND = 0, CLUB, HEART, SPADE, END_SUIT, LITTLE, BIG };
-		const std::vector<std::string> faceStr = { "JACK", "QUEEN", "KING", "ACE" };
-		const std::vector<std::string> suitStr = { "DIAMOND", "CLUB", "HEART", "SPADE" }; // Order should match enum class Suit
+		const std::vector<std::string> faceStr = { "JACK", "QUEEN", "KING", "ACE", "END_FACE", "JOKER" };
+		const std::vector<std::string> suitStr = { "DIAMOND", "CLUB", "HEART", "SPADE", "END_SUIT", "LITTLE", "BIG" }; // Order should match enum class Suit
 	
 	public: // Basic constructors
 

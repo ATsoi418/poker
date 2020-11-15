@@ -13,23 +13,25 @@ int main()
     
     poker::Deck dk;
     dk.populate();
-    dk.draw();
-    //dk.shuffle();
-
-    //dk.print();
-    poker::Card firstC = dk[0]; // 2 of DIAMONDS
-    poker::Card secC = dk[1]; // 3 of CLUBS
-    std::cout << firstC << std::endl; // 2 of DIAMONDS
 
     // Swap cards
+    poker::Card firstC = dk[0];
+    poker::Card secC = dk[1];
+
+    //poker::Card* firstCptr = &dk[0]; //00B8F750
+    //poker::Card* secCptr = &dk[1]; //00B8F720
+
+    std::cout << firstC << std::endl; // 2 of DIAMONDS
+    std::cout << secC << std::endl; // 2 of CLUBS
+
+    swap(firstC, secC);
+
+    //poker::Card newFirstC = dk[0];
+    //poker::Card newSecC = dk[1];
     
-    poker::Card* firstCptr = &firstC;
-    poker::Card* secCptr = &secC;
+    std::cout << firstC << std::endl; // 2 of CLUBS
+    std::cout << secC << std::endl; // 2 of DIAMONDS
+    std::cin.get();
 
-    dk.swap(firstCptr, secCptr);
-
-    dk.print();
-    std::cout << firstC << std::endl; // 3 of CLUBS
-    //std::cin.get();
     return 0;
 }

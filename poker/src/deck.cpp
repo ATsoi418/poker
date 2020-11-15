@@ -6,7 +6,7 @@
 #include <cassert>
 #include "deck.h"
 #include "card.h"
-#include <time.h>
+//#include <time.h>
 
 namespace poker {
 	
@@ -57,11 +57,12 @@ namespace poker {
 
 	}
 
-	void Deck::swap(Card* & cd1, Card* & cd2) {
-		Card* tmpC = cd1;
-		cd1 = cd2;
-		cd2 = tmpC;
-	}
+	//void Deck::swap(Card* cd1, Card* cd2) {
+	//	
+	//	Card tmpC = *cd1;
+	//	*cd1 = *cd2;
+	//	*cd2 = tmpC;
+	//}
 
 	//void Deck::shuffle(Deck& dk)
 	//{
@@ -124,7 +125,7 @@ namespace poker {
 		else { return 0; }
 	}
 
-
+	
 
 
 } // namespace poker
