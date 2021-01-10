@@ -47,12 +47,11 @@ namespace poker {
 
 	//void Deck::addDeck() {}
 
-	void Deck::draw(unsigned int nToDraw) {
+	Card Deck::draw(unsigned int nToDraw) {
 		
 		for (int i = 0; i != nToDraw; ++i) {
 			Card cd = deck_.back();
 			deck_.pop_back();
-			drawn_.push_back(cd);
 		}		
 
 	}
@@ -120,9 +119,7 @@ namespace poker {
 
 	int Deck::size(const char* cds)
 	{
-		if(0 == strcmp(cds, "deck")){ return std::size(deck_); }
-		if(0 == strcmp(cds, "drawn")){ return std::size(drawn_); }
-		else { return 0; }
+		return std::size(deck_);
 	}
 
 	

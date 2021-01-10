@@ -31,7 +31,7 @@ namespace poker {
 		void populate(bool wJokers = false);
 		//void addDeck();
 		//void delDeck();
-        void draw(unsigned int nToDraw = 1);
+        Card draw(unsigned int nToDraw = 1);
 		//void swap(Card* cd1, Card* cd2);
 		//void shuffle(Deck& dk);
 
@@ -46,7 +46,7 @@ namespace poker {
 
 	private: // Items  
 		
-		std::vector<Card> deck_, drawn_;
+		std::vector<Card> deck_;
         
 		// stats
 		//int nDecks_;

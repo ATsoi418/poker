@@ -26,11 +26,11 @@ int main()
 
     swap(firstC, secC);
 
-    //poker::Card newFirstC = dk[0];
-    //poker::Card newSecC = dk[1];
+    poker::Card newFirstC = dk[0];
+    poker::Card newSecC = dk[1];
     
-    std::cout << firstC << std::endl; // 2 of CLUBS
-    std::cout << secC << std::endl; // 2 of DIAMONDS
+    std::cout << newFirstC << std::endl; // 2 of CLUBS
+    std::cout << newSecC << std::endl; // 2 of DIAMONDS
     std::cin.get();
 
     return 0;

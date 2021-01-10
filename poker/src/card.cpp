@@ -13,14 +13,12 @@ Card::~Card() {}
 Card::Face Card::face() { return face_; }
 Card::Suit Card::suit() { return suit_; }
 
-bool Card::isRed() const { return ((suit_ == Suit::HEART) || (suit_ == Suit::DIAMOND)); }
-bool Card::isValid(Card& cd) const { return (int(cd.face_) >= 1) && (int(cd.face_) < 14) && (int(cd.suit_) >= 1) && (int(cd.suit_) < 5); }
-bool Card::operator==(const Card& cd) const {
-	return ((face_ == cd.face_) && (suit_ == cd.suit_));
-}
-bool Card::operator!=(const Card& cd) const {
-	return ((face_ != cd.face_) || (suit_ != cd.suit_));
-}
+bool Card::isValid() const { return (int(face_) >= 1) && (int(face_) < 14) && (int(suit_) >= 1) && (int(suit_) < 5); }
+bool Card::isRed() const { return ((suit_ == Suit::HEART) || (suit_ == Suit::DIAMOND) || (suit_ == Suit::BIG)); }
+bool operator==(const Card& lhs, const Card& rhs) { return lhs.face_ == rhs.face_ && lhs.suit_ == rhs.suit_; }
+bool operator!=(const Card& lhs, const Card& rhs) { return !(lhs == rhs); }
+//bool operator<(const Card& lhs, const Card& rhs) { return lhs.face_ < rhs.face_; }
+//bool operator>(const Card& lhs, const Card& rhs) { return !(lhs < rhs); }
 
 std::vector<std::string> Card::cd_to_str()
 {
@@ -29,8 +27,8 @@ std::vector<std::string> Card::cd_to_str()
 
 	// push_back face string
 	int faceInt = enumVal(Card::face());
-	if (faceInt >10) { cdStr.push_back(Card::faceStr[faceInt-11]); }
-	else { cdStr.push_back(std::to_string(faceInt)); };
+	if (faceInt > 10) { cdStr.push_back(Card::faceStr[faceInt - 11]); }
+	else { cdStr.push_back(std::to_string(faceInt)); }
 
 	// push_back suit string
 	cdStr.push_back(Card::suitStr[enumVal(Card::suit())]);
@@ -38,5 +36,8 @@ std::vector<std::string> Card::cd_to_str()
 	// return result
 	return cdStr;
 }
+
+
+
 
 }

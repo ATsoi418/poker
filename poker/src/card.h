@@ -41,7 +41,6 @@ namespace poker {
 		return e;
 	}
 
-
 	class Card {
 	public: // Defining Face & Suit
 		enum class Face { TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, END_FACE, JOKER };
@@ -61,9 +60,11 @@ namespace poker {
 	public: // 
 
 		bool isRed() const;
-		bool isValid(Card&) const;
-		bool operator==(const Card& cd) const;
-		bool operator!=(const Card& cd) const;
+		bool isValid() const;
+		bool operator==(const Card& lhs, const Card& rhs);
+		bool operator!=(const Card& lhs, const Card& rhs);
+		//bool operator<(const Card& lhs, const Card& rhs);
+		//bool operator>(const Card& lhs, const Card& rhs);
 
 		std::vector<std::string> cd_to_str();
 		
