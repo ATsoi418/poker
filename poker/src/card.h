@@ -61,8 +61,8 @@ namespace poker {
 
 		bool isRed() const;
 		bool isValid() const;
-		bool operator==(const Card& lhs, const Card& rhs);
-		bool operator!=(const Card& lhs, const Card& rhs);
+		friend bool operator==(Card& const lhs, Card& const rhs);
+		friend bool operator!=(Card& const lhs, Card& const rhs);
 		//bool operator<(const Card& lhs, const Card& rhs);
 		//bool operator>(const Card& lhs, const Card& rhs);
 

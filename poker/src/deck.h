@@ -48,10 +48,6 @@ namespace poker {
 		
 		std::vector<Card> deck_;
         
-		// stats
-		//int nDecks_;
-		//int maxNCards_;
-		
 
 	};
 

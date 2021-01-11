@@ -97,7 +97,7 @@ namespace poker {
 		for (int i = cut; i < peekEnd; ++i) {
 			Card cd = deck_[i];
 			std::cout << cd;
-			if (cd != deck_[peekEnd-1])
+			if (cd == deck_[peekEnd-1])
 				std::cout << ", ";
 		}
 		std::cout << std::endl;

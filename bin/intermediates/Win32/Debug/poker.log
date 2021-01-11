@@ -1,0 +1,61 @@
+﻿  card.cpp
+C:\Users\ashle\playground\poker\poker\src\card.h(64,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(64,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.cpp(18,32): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.cpp(18,49): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.cpp(19,32): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.cpp(19,49): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(40,34): error C2338: Parameter is not of type enum or enum class
+C:\Users\ashle\playground\poker\poker\src\card.cpp(18): message : see reference to function template instantiation 'E poker::operator *<poker::Card>(E)' being compiled
+          with
+          [
+              E=poker::Card
+          ]
+  deck.cpp
+C:\Users\ashle\playground\poker\poker\src\card.h(64,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(64,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\deck.cpp(100,30): error C2679: binary '==': no operator found which takes a right-hand operand of type 'const _Ty' (or there is no acceptable conversion)
+          with
+          [
+              _Ty=poker::Card
+          ]
+C:\Users\ashle\playground\poker\poker\src\card.h(64,15): message : could be 'bool poker::operator ==(poker::Card &,poker::Card &)' [found using argument-dependent lookup]
+C:\Users\ashle\playground\poker\poker\src\deck.cpp(100,30): message : while trying to match the argument list '(poker::Card, const _Ty)'
+          with
+          [
+              _Ty=poker::Card
+          ]
+C:\Users\ashle\playground\poker\poker\src\deck.cpp(111,26): error C2679: binary '!=': no operator found which takes a right-hand operand of type 'const _Ty' (or there is no acceptable conversion)
+          with
+          [
+              _Ty=poker::Card
+          ]
+C:\Users\ashle\playground\poker\poker\src\card.h(65,15): message : could be 'bool poker::operator !=(poker::Card &,poker::Card &)' [found using argument-dependent lookup]
+C:\Users\ashle\playground\poker\poker\src\deck.cpp(111,26): message : while trying to match the argument list '(poker::Card, const _Ty)'
+          with
+          [
+              _Ty=poker::Card
+          ]
+  main.cpp
+C:\Users\ashle\playground\poker\poker\src\card.h(64,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(64,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,41): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\card.h(65,58): warning C4227: anachronism used: qualifiers on reference are ignored
+C:\Users\ashle\playground\poker\poker\src\deck.h(14,24): error C2280: 'poker::Card &poker::Card::operator =(const poker::Card &)': attempting to reference a deleted function
+C:\Users\ashle\playground\poker\poker\src\card.h(80): message : compiler has generated 'poker::Card::operator =' here
+C:\Users\ashle\playground\poker\poker\src\card.h(80,2): message : 'poker::Card &poker::Card::operator =(const poker::Card &)': function was implicitly deleted because a data member 'poker::Card::suitStr' has either no appropriate copy assignment operator or overload resolution was ambiguous
+C:\Users\ashle\playground\poker\poker\src\card.h(49): message : see declaration of 'poker::Card::suitStr'
+C:\Users\ashle\playground\poker\poker\src\main.cpp(27): message : see reference to function template instantiation 'void poker::swap<poker::Card>(T &,T &)' being compiled
+          with
+          [
+              T=poker::Card
+          ]
+C:\Users\ashle\playground\poker\poker\src\deck.h(14,42): error C2280: 'poker::Card &poker::Card::operator =(const poker::Card &)': attempting to reference a deleted function
+C:\Users\ashle\playground\poker\poker\src\card.h(80): message : compiler has generated 'poker::Card::operator =' here
+C:\Users\ashle\playground\poker\poker\src\card.h(80,2): message : 'poker::Card &poker::Card::operator =(const poker::Card &)': function was implicitly deleted because a data member 'poker::Card::suitStr' has either no appropriate copy assignment operator or overload resolution was ambiguous
+C:\Users\ashle\playground\poker\poker\src\card.h(49): message : see declaration of 'poker::Card::suitStr'
+  Generating Code...
